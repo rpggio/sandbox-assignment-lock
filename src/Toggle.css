@@ -1,0 +1,32 @@
+.toggle {
+  width: 50px;
+  height: 26px;
+  border-radius: 13px;
+}
+
+.toggle.on {
+  background-color: #e6fdf7;
+}
+
+.toggle.off {
+  background-color: #ffe0e7;
+}
+
+.nub {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  /* position: relative; */
+  border-radius: 50%;
+  margin-top: 3px;
+}
+
+.nub.on {
+  background-color: #01a97e;
+  margin-left: 26px;
+}
+
+.nub.off {
+  background-color: #cf2b4e;
+  margin-left: 3px;
+}
