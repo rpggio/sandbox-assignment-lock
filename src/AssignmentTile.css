@@ -1,0 +1,27 @@
+.container {
+  width: 210px;
+}
+
+.header {
+  height: 40px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.header.locked {
+  background-color: #cf2b4e;
+}
+
+.header.unlocked {
+  background-color: #01a97e;
+}
+
+.header .title {
+  color: #ffffff;
+}
+
+.body {
+  height: 180px;
+  background-color: #faf9f7;
+  border: solid 1px #edece9;
+}
