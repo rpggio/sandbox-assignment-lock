@@ -10,11 +10,7 @@ const App = () => {
   return (
     <div>
       <div>
-        <Toggle isOn={true} />
-        <Toggle isOn={false} />
-      </div>
-      <div>
-        <AssignmentTile />
+        <AssignmentTile isLocked={true} />
       </div>
     </div>
   );

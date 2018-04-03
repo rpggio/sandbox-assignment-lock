@@ -3,6 +3,7 @@
 }
 
 .header {
+  position: relative;
   height: 40px;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
@@ -16,16 +17,27 @@
   background-color: #01a97e;
 }
 
-.header .title {
+.title {
   color: #ffffff;
+  position: absolute;
+  left: 11px;
+  top: 11px;
+
 }
 
-.header .toggle {
-  display: inline-block;
+.toggle {
+  position: absolute;
+  right: 10px;
+  top: 7px;
 }
 
 .body {
   height: 180px;
   background-color: #faf9f7;
   border: solid 1px #edece9;
+  padding: 10px;
+}
+
+.val {
+  font-weight: bold;
 }

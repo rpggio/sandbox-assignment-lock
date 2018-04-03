@@ -3,6 +3,7 @@ import cn from 'classnames';
 import { Flex, Box } from 'grid-styled';
 
 import Toggle from './Toggle';
+import Pencil from './Pencil';
 
 import css from './AssignmentTile.css';
 
@@ -12,18 +13,24 @@ const AssignmentTile = ({
   onBeginEdit
 }) => (
   <div className={css.container}>
-    <Flex 
-      className={cn(css.header, isLocked ? css.locked : css.unlocked)}
-      flexDirection="row"
-      flexWrap="no-wrap">
-      <Box ml={11} mt={11} className={cn(css.title)}>
+    <div 
+      className={cn(css.header, isLocked ? css.locked : css.unlocked)}>
+      <div className={cn(css.title)}>
         {isLocked ? 'Locked' : 'Unlocked'}
-      </Box>
-      <Box>
-        <Toggle className={cn.toggle} isOn={!isLocked} />
-      </Box>
-    </Flex>
-    <div className={css.body} />
+      </div>
+      <div className={css.toggle}>
+        <Toggle isOn={!isLocked} />      
+      </div>
+    </div>
+
+    <div className={css.body} >
+        <Box mt={12}>Administer <Pencil onClick={ onBeginEdit } /></Box>
+        <Box mt={12}>Assignment Unlock</Box>
+        <Box className={css.val}>{ unlockAt || 'Not Specified' }</Box>
+        <Box mt={12}>Assignment Lock</Box>
+        <Box className={css.val}>{ lockAt || 'Not Specified' }</Box>
+        <Box mt={20}>{timeLimit}</Box>
+    </div>
   </div>
 );
 

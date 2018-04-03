@@ -11,7 +11,8 @@
     "classnames": "2.2.5",
     "grid-styled": "3.2.1",
     "react": "latest",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "styled-components": "3.2.5"
   },
   "devDependencies": {
     "parcel-bundler": "^1.6.1"
