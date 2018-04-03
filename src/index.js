@@ -4,6 +4,8 @@ import { render } from 'react-dom';
 import Toggle from './Toggle';
 import AssignmentTile from './AssignmentTile';
 
+import css from '../styles/main.css';
+
 const App = () => {
   return (
     <div>

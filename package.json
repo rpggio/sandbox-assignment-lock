@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "classnames": "2.2.5",
+    "grid-styled": "3.2.1",
     "react": "latest",
     "react-dom": "latest"
   },
