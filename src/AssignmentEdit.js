@@ -1,6 +1,5 @@
 import React from 'react';
 import moment from 'moment';
-import { Flex, Box } from 'grid-styled';
 
 import DatePicker from 'react-datepicker';
 
@@ -44,14 +43,14 @@ console.log('render', this.state);
 
     return (
       <div className={css.container}>
-        <Box mt={12}>Assignment Begins</Box>
+        <div className={css.part}>Assignment Begins</div>
         <DatePicker
           selected={beginsAt}
           onChange={d => this.handleChange({ assignment: { beginsAt: d } })}
           {...datePickerFormat}
         />
 
-        <Box mt={12}>Assignment Due</Box>
+        <div className={css.part}>Assignment Due</div>
         <DatePicker
           selected={dueAt}
           onChange={d => this.handleChange({ assignment: { dueAt: d } })}

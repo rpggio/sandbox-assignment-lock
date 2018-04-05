@@ -7,10 +7,6 @@
   padding: 30px 20px;
 }
 
-:global .react-datepicker__time-list {
-  padding: 0;
-}
-
-:global .react-datepicker__time-box {
-  margin-left: 0;
+.part {
+  margin-top: 16px;
 }

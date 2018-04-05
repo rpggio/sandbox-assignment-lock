@@ -9,7 +9,6 @@
   },
   "dependencies": {
     "classnames": "2.2.5",
-    "grid-styled": "3.2.1",
     "moment": "2.22.0",
     "normalize.css": "8.0.0",
     "react": "latest",

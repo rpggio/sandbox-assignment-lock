@@ -38,6 +38,10 @@
   padding: 10px;
 }
 
+.part {
+  margin-top: 16px;
+}
+
 .val {
   font-weight: bold;
 }
