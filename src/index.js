@@ -3,15 +3,17 @@ import { render } from 'react-dom';
 
 import Toggle from './Toggle';
 import AssignmentTile from './AssignmentTile';
+import AssignmentEdit from './AssignmentEdit';
 
 import css from '../styles/main.css';
 
 const App = () => {
   return (
     <div>
-      <div>
-        <AssignmentTile isLocked={true} />
-      </div>
+      
+      <AssignmentTile isLocked={true} />
+      
+      <AssignmentEdit />
     </div>
   );
 };

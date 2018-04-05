@@ -10,6 +10,8 @@
   "dependencies": {
     "classnames": "2.2.5",
     "grid-styled": "3.2.1",
+    "input-moment": "latest",
+    "moment": "2.22.0",
     "react": "latest",
     "react-dom": "latest",
     "styled-components": "3.2.5"

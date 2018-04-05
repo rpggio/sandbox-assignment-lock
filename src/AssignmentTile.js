@@ -8,7 +8,7 @@ import Pencil from './Pencil';
 import css from './AssignmentTile.css';
 
 const AssignmentTile = ({
-  assessment: { unlockAt, lockAt, timeLimit, isLocked },
+  assessment: { beginsAt, dueAt, timeLimit, isLocked },
   onToggleLocked,
   onBeginEdit
 }) => (
@@ -25,10 +25,10 @@ const AssignmentTile = ({
 
     <div className={css.body} >
         <Box mt={12}>Administer <Pencil onClick={ onBeginEdit } /></Box>
-        <Box mt={12}>Assignment Unlock</Box>
-        <Box className={css.val}>{ unlockAt || 'Not Specified' }</Box>
-        <Box mt={12}>Assignment Lock</Box>
-        <Box className={css.val}>{ lockAt || 'Not Specified' }</Box>
+        <Box mt={12}>Assignment Begins</Box>
+        <Box className={css.val}>{ beginsAt || 'Not Specified' }</Box>
+        <Box mt={12}>Assignment Due</Box>
+        <Box className={css.val}>{ dueAt || 'Not Specified' }</Box>
         <Box mt={20}>{timeLimit}</Box>
     </div>
   </div>
