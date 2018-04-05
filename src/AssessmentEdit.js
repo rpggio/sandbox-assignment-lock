@@ -41,13 +41,14 @@ class AssessmentEdit extends React.Component {
     const { assessment: { beginsAt, dueAt } } = this.state;
 
     const datePickerFormat = {
-      timeFormat: 'HH:mm',
-      timeIntervals: 15,
+      timeIntervals: 30,
       dateFormat: 'llll',
       timeCaption: 'time',
       showTimeSelect: true,
       popperClassName: 'pop',
-      className: css.dateField
+      className: css.dateField,
+      minTime: moment().hours(5).minutes(0),
+      maxTime: moment().hours(22).minutes(0)
     };
 
     return (
@@ -55,22 +56,18 @@ class AssessmentEdit extends React.Component {
         <div className={css.part}>Assessment Begins</div>
         <DatePicker
           selected={beginsAt}
-          onChange={d => this.handleChange({ assessment: { beginsAt: d } })}
-
           minDate={moment()}
-          maxDate={(dueAt && dueAt.subtract(1, 'day')) || moment().add(1, 'year')}
-
+          maxDate={dueAt || moment().add(1, 'year')}
+          onChange={d => this.handleChange({ assessment: { beginsAt: d } })}
           {...datePickerFormat}
         />
 
         <div className={css.part}>Assessment Due</div>
         <DatePicker
           selected={dueAt}
-          onChange={d => this.handleChange({ assessment: { dueAt: d } })}
-
-          minDate={(beginsAt && beginsAt.add(1, 'day')) || moment()}
+          minDate={beginsAt || moment()}
           maxDate={moment().add(1, 'year')}
-
+          onChange={d => this.handleChange({ assessment: { dueAt: d } })}
           {...datePickerFormat}
         />
 
