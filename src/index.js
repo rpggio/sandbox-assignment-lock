@@ -5,6 +5,8 @@ import Toggle from './Toggle';
 import AssignmentTile from './AssignmentTile';
 import AssignmentEdit from './AssignmentEdit';
 
+// import 'normalize.css';
+
 import css from '../styles/main.css';
 
 const App = () => {
@@ -14,6 +16,7 @@ const App = () => {
       <AssignmentTile isLocked={true} />
       
       <AssignmentEdit />
+
     </div>
   );
 };

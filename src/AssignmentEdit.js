@@ -1,50 +1,62 @@
 import React from 'react';
 import moment from 'moment';
 import { Flex, Box } from 'grid-styled';
-import 'input-moment/dist/input-moment.css';
 
-import DateTimeInput from './DateTimeInput';
+import DatePicker from 'react-datepicker';
+
+import '!style-loader!react-datepicker/dist/react-datepicker.css';
+
 import css from './AssignmentEdit.css';
 
 class AssignmentEdit extends React.Component {
   constructor(props) {
     super(props);
 
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSave = this.handleSave.bind(this);
-
     this.state = {
-      unlockMoment: moment()
+      assignment: {
+      }
     };
   }
 
-  handleChange(m) {
-    console.log('change', m);
-    this.setState({ m });
-  }
-
-  handleSave() {
-    // console.log('saved', this.state.m.format('llll'));
+  handleChange(change) {
+    this.setState(state => {
+      const newState = Object.assign(state, change);
+      if(change.assignment){
+        newState.assignment = Object.assign(state, change.assignment);
+      }
+      return newState;
+    });
   }
 
   render() {
+    const { assignment: { beginsAt, dueAt } } = this.state;
+
+    const datePickerFormat = {
+      timeFormat: 'HH:mm',
+      timeIntervals: 15,
+      dateFormat: 'llll',
+      timeCaption: 'time',
+      showTimeSelect: true,
+      popperClassName: 'pop'
+    };
+
+console.log('render', this.state);
+
     return (
       <div className={css.container}>
         <Box mt={12}>Assignment Begins</Box>
-        <DateTimeInput
-          moment={this.state.unlockMoment}
-          onChange={this.handleChange}
-          onSave={this.handleSave}
+        <DatePicker
+          selected={beginsAt}
+          onChange={d => this.handleChange({ assignment: { beginsAt: d } })}
+          {...datePickerFormat}
         />
 
         <Box mt={12}>Assignment Due</Box>
-        <Box mt={12}>
-          <DateTimeInput
-            moment={this.state.unlockMoment}
-            onChange={this.handleChange}
-            onSave={this.handleSave}
-          />
-        </Box>
+        <DatePicker
+          selected={dueAt}
+          onChange={d => this.handleChange({ assignment: { dueAt: d } })}
+          {...datePickerFormat}
+        />
       </div>
     );
   }

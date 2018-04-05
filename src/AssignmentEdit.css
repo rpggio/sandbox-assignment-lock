@@ -6,3 +6,11 @@
   box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, 0.1);
   padding: 30px 20px;
 }
+
+:global .react-datepicker__time-list {
+  padding: 0;
+}
+
+:global .react-datepicker__time-box {
+  margin-left: 0;
+}
