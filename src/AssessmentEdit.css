@@ -10,3 +10,11 @@
 .part {
   margin-top: 16px;
 }
+
+.buttons {
+  margin-top: 60px;
+}
+
+.dateField {
+  width: 240px;
+}

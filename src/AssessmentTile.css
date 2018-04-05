@@ -29,6 +29,7 @@
   position: absolute;
   right: 10px;
   top: 7px;
+  cursor: pointer;
 }
 
 .body {
@@ -44,4 +45,10 @@
 
 .val {
   font-weight: bold;
+}
+
+.beginEdit {
+  display: inline-block;
+  margin-left: 80px;
+  cursor: pointer;
 }

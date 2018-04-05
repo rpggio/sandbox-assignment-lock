@@ -1,9 +1,7 @@
 import React from 'react';
 import moment from 'moment';
-
+import { Button } from 'semantic-ui-react'
 import DatePicker from 'react-datepicker';
-
-// import '!style-loader!react-datepicker/dist/react-datepicker.css';
 
 import css from './AssessmentEdit.css';
 
@@ -12,19 +10,30 @@ class AssessmentEdit extends React.Component {
     super(props);
 
     this.state = {
-      assessment: {
-      }
+      assessment: props.assessment || {}
     };
   }
 
   handleChange(change) {
+    console.log('edit change', { change, state: JSON.stringify(this.state)});
+
     this.setState(state => {
-      const newState = Object.assign(state, change);
       if (change.assessment){
-        newState.assessment = Object.assign(state, change.assessment);
+        const newState = Object.assign({}, state);
+        newState.assessment = Object.assign(newState.assessment, change.assessment);
+        return newState;
       }
-      return newState;
+      return Object.assign(state, change);
     });
+  }
+
+  handleSave(){
+    this.props.onSave(this.state.assessment);
+    this.props.onClose();
+  }
+
+  handleCancel(){
+    this.props.onClose();
   }
 
   render() {
@@ -36,7 +45,8 @@ class AssessmentEdit extends React.Component {
       dateFormat: 'llll',
       timeCaption: 'time',
       showTimeSelect: true,
-      popperClassName: 'pop'
+      popperClassName: 'pop',
+      className: css.dateField
     };
 
     return (
@@ -54,6 +64,11 @@ class AssessmentEdit extends React.Component {
           onChange={d => this.handleChange({ assessment: { dueAt: d } })}
           {...datePickerFormat}
         />
+
+        <div className={css.buttons}>
+          <Button primary onClick={() => this.handleSave()}>Save</Button>
+          <Button onClick={() => this.handleCancel()}>Cancel</Button>
+        </div>
       </div>
     );
   }
