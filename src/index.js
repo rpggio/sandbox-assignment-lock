@@ -2,18 +2,20 @@ import React from 'react';
 import { render } from 'react-dom';
 
 import Toggle from './Toggle';
-import AssignmentTile from './AssignmentTile';
-import AssignmentEdit from './AssignmentEdit';
+import AssessmentTile from './AssessmentTile';
+import AssessmentEdit from './AssessmentEdit';
+
+import css from './index.css';
 
 // import 'normalize.css';
 
 const App = () => {
   return (
-    <div>
+    <div className={css.container}>
       
-      <AssignmentTile isLocked={true} />
+      <AssessmentTile isLocked={true} />
       
-      <AssignmentEdit />
+      <AssessmentEdit />
 
     </div>
   );

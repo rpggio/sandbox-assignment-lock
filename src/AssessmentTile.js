@@ -4,9 +4,9 @@ import cn from 'classnames';
 import Toggle from './Toggle';
 import Pencil from './Pencil';
 
-import css from './AssignmentTile.css';
+import css from './AssessmentTile.css';
 
-const AssignmentTile = ({
+const AssessmentTile = ({
   assessment: { beginsAt, dueAt, timeLimit, isLocked },
   onToggleLocked,
   onBeginEdit
@@ -23,12 +23,12 @@ const AssignmentTile = ({
     </div>
 
     <div className={css.body} >
-        <div className={css.part}>Administer <Pencil onClick={onBeginEdit} /></div>
+        <div className={css.part}>Assessment <Pencil onClick={onBeginEdit} /></div>
         
-        <div className={css.part}>Assignment Begins</div>
+        <div className={css.part}>Assessment Begins</div>
         <div className={css.val}>{beginsAt || 'Not Specified'}</div>
         
-        <div className={css.part}>Assignment Due</div>
+        <div className={css.part}>Assessment Due</div>
         <div className={css.val}>{dueAt || 'Not Specified'}</div>
         
         <div mt={20}>{timeLimit}</div>
@@ -36,10 +36,10 @@ const AssignmentTile = ({
   </div>
 );
 
-AssignmentTile.defaultProps = {
+AssessmentTile.defaultProps = {
   assessment: {},
   onToggleLocked: () => {},
   onBeginEdit: () => {}
 };
 
-export default AssignmentTile;
+export default AssessmentTile;
