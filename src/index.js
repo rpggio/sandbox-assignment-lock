@@ -7,8 +7,6 @@ import AssignmentEdit from './AssignmentEdit';
 
 // import 'normalize.css';
 
-import css from '../styles/main.css';
-
 const App = () => {
   return (
     <div>
