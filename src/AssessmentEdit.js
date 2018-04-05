@@ -1,6 +1,6 @@
 import React from 'react';
 import moment from 'moment';
-import { Button } from 'semantic-ui-react'
+import { Button } from 'semantic-ui-react';
 import DatePicker from 'react-datepicker';
 
 import css from './AssessmentEdit.css';
@@ -15,24 +15,25 @@ class AssessmentEdit extends React.Component {
   }
 
   handleChange(change) {
-    console.log('edit change', { change, state: JSON.stringify(this.state)});
-
     this.setState(state => {
-      if (change.assessment){
+      if (change.assessment) {
         const newState = Object.assign({}, state);
-        newState.assessment = Object.assign(newState.assessment, change.assessment);
+        newState.assessment = Object.assign(
+          newState.assessment,
+          change.assessment
+        );
         return newState;
       }
       return Object.assign(state, change);
     });
   }
 
-  handleSave(){
+  handleSave() {
     this.props.onSave(this.state.assessment);
     this.props.onClose();
   }
 
-  handleCancel(){
+  handleCancel() {
     this.props.onClose();
   }
 
@@ -55,6 +56,10 @@ class AssessmentEdit extends React.Component {
         <DatePicker
           selected={beginsAt}
           onChange={d => this.handleChange({ assessment: { beginsAt: d } })}
+
+          minDate={moment()}
+          maxDate={(dueAt && dueAt.subtract(1, 'day')) || moment().add(1, 'year')}
+
           {...datePickerFormat}
         />
 
@@ -62,11 +67,17 @@ class AssessmentEdit extends React.Component {
         <DatePicker
           selected={dueAt}
           onChange={d => this.handleChange({ assessment: { dueAt: d } })}
+
+          minDate={(beginsAt && beginsAt.add(1, 'day')) || moment()}
+          maxDate={moment().add(1, 'year')}
+
           {...datePickerFormat}
         />
 
         <div className={css.buttons}>
-          <Button primary onClick={() => this.handleSave()}>Save</Button>
+          <Button primary onClick={() => this.handleSave()}>
+            Save
+          </Button>
           <Button onClick={() => this.handleCancel()}>Cancel</Button>
         </div>
       </div>

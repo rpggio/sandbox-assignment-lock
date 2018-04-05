@@ -3,7 +3,6 @@ import { render } from 'react-dom';
 
 import 'semantic-ui-css/semantic.min.css';
 
-import Toggle from './Toggle';
 import AssessmentTile from './AssessmentTile';
 import AssessmentEdit from './AssessmentEdit';
 
