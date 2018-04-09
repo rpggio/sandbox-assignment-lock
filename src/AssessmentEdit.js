@@ -19,6 +19,7 @@ class AssessmentEdit extends React.Component {
       if (change.assessment) {
         const newState = Object.assign({}, state);
         newState.assessment = Object.assign(
+          {},
           newState.assessment,
           change.assessment
         );
