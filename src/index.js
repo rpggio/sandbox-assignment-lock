@@ -20,7 +20,7 @@ class App extends React.Component {
   }
 
   handleChange(change){
-    this.setState(state => Object.assign(state, change));
+    this.setState(state => Object.assign({}, state, change));
   }
 
   toggleLocked() {

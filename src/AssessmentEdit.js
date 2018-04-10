@@ -10,22 +10,19 @@ class AssessmentEdit extends React.Component {
     super(props);
 
     this.state = {
-      assessment: props.assessment || {}
+      assessment: props.assessment ? 
+        Object.assign({}, props.assessment) : 
+        {}
     };
   }
 
   handleChange(change) {
     this.setState(state => {
+      const newState = Object.assign({}, state, change);
       if (change.assessment) {
-        const newState = Object.assign({}, state);
-        newState.assessment = Object.assign(
-          {},
-          newState.assessment,
-          change.assessment
-        );
-        return newState;
+        newState.assessment = Object.assign({}, state.assessment, change.assessment);
       }
-      return Object.assign(state, change);
+      return newState;
     });
   }
 
