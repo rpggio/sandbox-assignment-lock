@@ -47,6 +47,11 @@ class App extends React.Component {
             onSave={a => this.handleChange({assessment: a})}
             onClose={() => this.handleChange({showEdit: false})} /> }
 
+        <div className={css.bottom}>
+          <a href="https://academicmerit.atlassian.net/browse/FY-1344" target="_blank">FY-1344</a> 
+          – Advanced option to set a Start and End Date for an Assignment.
+        </div>
+
       </div>
     );
   }

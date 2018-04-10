@@ -6,3 +6,8 @@
 .container > div {
   margin: 10px;
 }
+
+.bottom {
+  position: fixed;
+  bottom: 0;
+}
